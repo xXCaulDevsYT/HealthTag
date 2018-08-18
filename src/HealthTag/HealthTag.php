@@ -1,6 +1,6 @@
 <?php
 
-namespace HealthTag;
+namespace HealthBarIN;
 
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
@@ -16,14 +16,14 @@ use pocketmine\utils\TextFormat;
 class HealthTag extends PluginBase implements Listener{
 		
 	public function onEnable(){ 
-		$this->getLogger()->info(TextFormat::YELLOW."HealthTag Loading...");
+		$this->getLogger()->info(TextFormat::YELLOW."Loading up Infernal HealthBar");
 		$this->isEnabled = true;
 		$this->getServer()->getPluginManager()->registerEvents($this, $this);
-		$this->getLogger()->info(TextFormat::GREEN."HealthTag Enabled!");
+		$this->getLogger()->info(TextFormat::GREEN."Infernal HealthBar by EmeraldYT");
 	}
 
 	public function onDisable(){
-		$this->getLogger()->info("HealthTag Disabled.");
+		$this->getLogger()->info("Infernal Health Bar Disabled..");
 	}
 	public function onJoin(PlayerJoinEvent $event){
 		$player = $event->getPlayer();
@@ -35,7 +35,7 @@ class HealthTag extends PluginBase implements Listener{
 		$username = $player->getName();
 		
 		if($this->isEnabled){
-			$player->setNameTag(TextFormat::GRAY.$player->getName().TextFormat::WHITE." ".$player->getHealth().TextFormat::RED."❤");
+			$player->setNameTag(TextFormat::GRAY.$player->getName().TextFormat::WHITE." ".$player->getHealth().TextFormat::GREEN."❤");
 		}else{
 			$player->setNameTag($player->getName());
 		}
@@ -44,7 +44,7 @@ class HealthTag extends PluginBase implements Listener{
 	public function onCommand(CommandSender $sender, Command $command, $label, array $args){
 		$username = $sender->getName();
 		switch($command->getName()){
-			case "ht":
+			case "inhb":
 				if($sender->isOp()){
 					if($this->isEnabled !== false){
 						$this->isEnabled = false;
@@ -55,7 +55,7 @@ class HealthTag extends PluginBase implements Listener{
 						$this->renderNameTag($player);
 					}
 				}else{
-					$sender->sendMessage(TextFormat::RED."You don't have permission to use this command");
+					$sender->sendMessage(TextFormat::GOLD."This Command Requires Permision OP!");
 				}
 				return true;
 			break;
