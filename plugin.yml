@@ -1,6 +1,6 @@
 name: HealthBarIN
 version: 1.0
-api: [1.3.1]
+api: [4.0.0, 3.0.0 , 3.0.0ALPHA12]
 author: EmeraldYT
 description: "Shows Players Heath beside NameTag"
 main: HealthTag\HealthTag
